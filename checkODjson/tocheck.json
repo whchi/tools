@@ -1,0 +1,72 @@
+{
+    "categoryCode": "I00",
+    "identifier": "999000000A-000099",
+    "title": "判斷來源為API",
+    "description": "判斷來源為API",
+    "type": "rawData",
+    "fieldDescription": "hello world",
+    "license": "政府資料開放平臺資料使用規範",
+    "licenseURL": "http://data.gov.tw/?q=principle",
+    "cost": "免費",
+    "costURL": "",
+    "costLaw": "",
+    "organization": "example測試機關",
+    "organizationContactName": "亓",
+    "organizationContactPhone": "02-12345678",
+    "organizationContactEmail": "dylanchi@example.com",
+    "publisher": "example測試機關",
+    "publisherContactName": "亓 先生",
+    "publisherContactPhone": "02-12345678",
+    "publisherContactEmail": "dylanchi@example.com",
+    "publisherOID": "2.16.886.101.20003.22222.22222",
+    "publisherOrgCode": "999000000A",
+    "accrualPeriodicity": "每日",
+    "temporalCoverageFrom": "2014-04-04 00:00:00",
+    "temporalCoverageTo": "2014-04-04 00:00:00",
+    "issued": "2013-11-01 00:00:00",
+    "modified": "2015-05-29 11:46:53",
+    "spatial": "臺灣",
+    "language": "",
+    "landingPage": "http://www.google.com",
+    "keyword": [
+        "政府資料開放",
+        "政府資料開放平臺",
+        "資料集",
+        "資料集詮釋資料",
+        "Open Data",
+        "Open Government Data",
+        "Open",
+        "Data",
+        "Government",
+        "部會"
+    ],
+    "numberOfData": "",
+    "notes": "",
+    "distribution": [{
+            "resourceID": "999000000A-000001-001",
+            "resourceDescription": "測試1",
+            "format": "CSV",
+            "resourceModified": "2015-02-25 17:51:29",
+            "downloadURL": "http://file.data.gov.tw/opendatafile/政府資料開放平臺資料集清單.csv",
+            "metadataSourceOfData": "",
+            "characterSetCode": "UTF-8"
+        }, {
+            "resourceID": "999000000A-000001-002",
+            "resourceDescription": "測試2",
+            "format": "JSON",
+            "resourceModified": "2015-02-25 17:51:29",
+            "downloadURL": "http://file.data.gov.tw/opendatafile/政府資料開放平臺資料集清單.json",
+            "metadataSourceOfData": "",
+            "characterSetCode": "UTF-8"
+        }, {
+            "resourceID": "999000000A-000001-003",
+            "resourceDescription": "測試3",
+            "format": "XML",
+            "resourceModified": "2015-02-25 17:51:29",
+            "downloadURL": "http://file.data.gov.tw/opendatafile/政府資料開放平臺資料集清單.xml",
+            "metadataSourceOfData": "",
+            "characterSetCode": "UTF-8"
+        }
+
+    ]
+}
