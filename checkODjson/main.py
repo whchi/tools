@@ -20,10 +20,9 @@ def getValidateOidList(oids):
         oidList.append(i[0:18])
     return list(set(oidList))
 
-if __name__ == '__main__':
-    jsonFile = 'example.json'
-else:
-    jsonFile = sys.argv[1]
+jsonFile = 'example.json'
+# 下載後把 jsonFile 修改為下方
+# jsonFile = sys.argv[1]
 
 if os.path.isfile(jsonFile):
     fn, fext = os.path.splitext(jsonFile)
