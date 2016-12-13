@@ -30,7 +30,7 @@ if os.path.isfile(jsonFile):
     if fext != '.json':
         sys.exit('input file ext name must be json')
 else:
-    sys.exit('no such file named ' +jsonFile)
+    sys.exit('no such file named ' + jsonFile)
 
 validateOidList = getValidateOidList(getOids())
 tochk = json.loads(open(jsonFile, encoding='utf-8').read())
