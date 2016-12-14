@@ -20,6 +20,16 @@ def getValidateOidList(oids):
         oidList.append(i[0:18])
     return list(set(oidList))
 
+def getValidateOidAndOrg():
+    org = {}
+    with open('GDS.csv', newline = '', encoding='utf-8') as csvfile:
+        reader = csv.reader(csvfile, delimiter = ',', quotechar = '|')
+        # skip first line
+        next(reader)
+        for row in reader:
+            org[row[1]] = row[0]
+        return org
+
 jsonFile = 'example.json'
 # 下載後把 jsonFile 修改為下方
 # jsonFile = sys.argv[1]
@@ -32,6 +42,7 @@ else:
     sys.exit('no such file named ' + jsonFile)
 
 validateOidList = getValidateOidList(getOids())
+validateOrgOid = getValidateOidAndOrg()
 tochk = json.loads(open(jsonFile, encoding='utf-8').read())
 # 檢查第一層是否都已填
 for key in requiredField:
@@ -49,6 +60,12 @@ if checkIfUnicodeExists(tochk['publisher']) is None:
 # 檢查oid是否合法
 if tochk['publisherOID'][0:18] not in validateOidList:
     sys.exit('資料集提供機關【' + tochk['publisherOID'] +'】不合於oid規範，詳情參考http://oid.nat.gov.tw/OIDWeb/')
+# 檢查傳入oid是否存在於政府oid清單
+if tochk['publisherOID'] not in validateOrgOid.keys():
+    sys.exit('資料集提供機關oid【' + tochk['publisherOID'] +'】不存在')
+# 檢查oid與機關名稱是否相符
+if validateOrgOid[tochk['publisherOID']] != tochk['publisher']:
+    sys.exit('資料集提供機關【'+ tochk['publisher'] +'】與其oid不符')
 # 檢查categoryCode 是否正確
 if tochk['categoryCode'] not in dataClassification:
     sys.exit('分類錯誤，不應有【'+tochk['categoryCode']+'】分類')
