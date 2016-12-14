@@ -7,14 +7,14 @@ def checkIfUnicodeExists(s):
     return re.search('[\u4e00-\u9fff]+', s)
 
 def getValidateOidAndOrg():
-    org = {}
+    orgoid = {}
     with open('GDS.csv', newline = '', encoding='utf-8') as csvfile:
         reader = csv.reader(csvfile, delimiter = ',', quotechar = '|')
         # skip first line
         next(reader)
         for row in reader:
-            org[row[1]] = row[0]
-        return org
+            orgoid[row[1]] = row[0]
+        return orgoid
 
 jsonFile = 'example.json'
 # 下載後把 jsonFile 修改為下方
