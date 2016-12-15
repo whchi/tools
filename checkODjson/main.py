@@ -33,7 +33,11 @@ else:
     print('no such file named ' + jsonFile)
 
 validateOrgOid = getValidateOidAndOrg()
-tochk = json.loads(open(jsonFile, encoding='utf-8').read())
+try:
+    tochk = json.loads(open(jsonFile, encoding='utf-8').read())
+except ValueError:
+    print('json format is not validate')
+    sys.exit()
 # 檢查第一層是否都已填
 for key in requiredField:
     if key not in tochk.keys():
