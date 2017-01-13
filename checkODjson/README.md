@@ -3,5 +3,5 @@
 使用python 3+
 
 1. 取得要解析的json
-2. 將其附檔名命名為json並儲存於main.py同層目錄
+2. 將其附檔名命名為json
 3. `python main.py {yourjsonfilename.json}`
