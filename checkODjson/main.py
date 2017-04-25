@@ -1,7 +1,10 @@
 import json, csv
 import sys, os
 import re
+import time, datetime
+
 from config import *
+
 ###############
 # Global Vars #
 ###############
@@ -24,6 +27,17 @@ def getValidateOidAndOrg():
         for row in reader:
             orgoid[row[1]] = row[0]
         return orgoid
+
+def dateTimeisNotValidate(dateTime):
+    if not dateTime:
+        return ''
+
+    t = datetime.datetime.strptime(dateTime, "%Y-%m-%d %H:%M:%S")
+    try:
+        time.mktime(t.timetuple())
+        return ''
+    except Exception as e:
+        return '['+dateTime +'] ' + str(e)
 
 if os.path.isfile(jsonFile):
     fn, fext = os.path.splitext(jsonFile)
@@ -57,6 +71,16 @@ if not errors:
         if checkIfUnicodeExists(tochk['publisher']) is None:
             errors.append('欄位【publisher】應含中文字')
 
+        # 檢查傳入時間格式是否符合
+        if dateTimeisNotValidate(tochk['temporalCoverageFrom']):
+            errors.append('欄位【temporalCoverageFrom】格式錯誤:' + dateTimeisNotValidate(tochk['temporalCoverageFrom']))
+        if dateTimeisNotValidate(tochk['temporalCoverageTo']):
+            errors.append('欄位【temporalCoverageTo】格式錯誤:' + dateTimeisNotValidate(tochk['temporalCoverageTo']))
+        if dateTimeisNotValidate(tochk['issued']):
+            errors.append('欄位【issued】格式錯誤:' + dateTimeisNotValidate(tochk['issued']))
+        if dateTimeisNotValidate(tochk['modified']):
+            errors.append('欄位【modified】格式錯誤:' + dateTimeisNotValidate(tochk['modified']))
+
         # 檢查傳入oid是否存在於政府oid清單
         validateOrgOid = getValidateOidAndOrg()
         if tochk['publisherOID'] not in validateOrgOid.keys():
@@ -73,14 +97,16 @@ if not errors:
             errors.append('資料類型錯誤: 不應有【' + tochk['type'].lower() +'】類型')
         # distribution 已有值
         for i in tochk['distribution']:
+            if dateTimeisNotValidate(i['resourceModified']):
+                errors.append('resourceID: ' + i['resourceID'] + ' 欄位【resourceModified】格式錯誤:' + dateTimeisNotValidate(i['resourceModified']))
             for dkey in requiredDistField:
                 if dkey not in i.keys():
-                    errors.append('必填欄位【' + dkey + '】未填')
+                    errors.append('resourceID: ' + i['resourceID'] + ' 必填欄位【' + dkey + '】未填')
                 if i[dkey] is None or i[dkey] == '':
-                    errors.append('欄位【' + dkey + '】不應為空')
+                    errors.append('resourceID: ' + i['resourceID'] + ' 欄位【' + dkey + '】不應為空')
                 if dkey == 'format':
                     if i[dkey] not in dataFormat:
-                        errors.append('format填寫錯誤: 不應有【' + i[dkey] + '】')
+                        errors.append('resourceID: ' + i['resourceID'] + ' format填寫錯誤: 不應有【' + i[dkey] + '】')
         if errors:
             print('error messages:')
             for i in errors:
