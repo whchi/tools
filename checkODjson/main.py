@@ -70,7 +70,6 @@ if not errors:
             errors.append('欄位【identifier】不應含中文字')
         if checkIfUnicodeExists(tochk['publisher']) is None:
             errors.append('欄位【publisher】應含中文字')
-
         # 檢查傳入時間格式是否符合
         if dateTimeisNotValidate(tochk['temporalCoverageFrom']):
             errors.append('欄位【temporalCoverageFrom】格式錯誤:' + dateTimeisNotValidate(tochk['temporalCoverageFrom']))
@@ -80,6 +79,9 @@ if not errors:
             errors.append('欄位【issued】格式錯誤:' + dateTimeisNotValidate(tochk['issued']))
         if dateTimeisNotValidate(tochk['modified']):
             errors.append('欄位【modified】格式錯誤:' + dateTimeisNotValidate(tochk['modified']))
+        # 檢查publisherContactName是否有稱位 EX:先生/小姐
+        if (tochk['publisherContactName'].find('先生') == -1) and (tochk['publisherContactName'].find('小姐') == -1 ):
+            errors.append('欄位【publisherContactName】格式錯誤: 應該加入 先生 / 小姐 稱謂')
 
         # 檢查傳入oid是否存在於政府oid清單
         validateOrgOid = getValidateOidAndOrg()
