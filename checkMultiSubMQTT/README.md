@@ -9,7 +9,7 @@
 |:--|:--|
 |startServer.sh|啟動mqtt server(需先安裝，我是用mosquitto)|
 |stopServer.sh|結束mqtt server|
-|submulti.sh|建立subscribers，使用方式為`sh submulti.sh {數量} {qos}`，要修改topic到裡面改|
+|submulti.sh|建立subscribers，使用方式為`sh submulti.sh {數量} {qos} {topic}`|
 |stat.sh|查看log黨的大小並排序，如果有不一致表示該subscriber有漏訊息|
 
 
