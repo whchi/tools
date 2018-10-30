@@ -14,6 +14,6 @@
 |pubmultitopic.sh|推播多主題， `sh pubmultitopic.sh {數量，需與submultitopics.sh一致} {qos}`|
 |stat.sh|查看log檔的大小並排序，如果有不一致表示該subscriber有漏訊息|
 |kill.sh|移除subscriber|
-
+|interactive.sh|互動介面|
 ## 備註
 publisher.js為使用[mqtt.js](https://github.com/mqttjs)的publisher範例，推薦使用[MQTTLens](https://chrome.google.com/webstore/detail/mqttlens/hemojaaeigabkbcookmlgmdigohjobjm?hl=zh-TW)即可
