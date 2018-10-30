@@ -34,13 +34,13 @@ read choice
 case $choice in
 
     1)
-        submt; echo 'done!'    # Do Stuff
+        submt; echo 'done!'
         ;;
     2)
-        submts; echo 'done!'  # Do different stuff
+        submts; echo 'done!'
         ;;
     3)
-        pubmulti; echo 'done!'  # Do different stuff
+        pubmulti; echo 'done!'
         ;;
     *)
         echo $choice 'is not a valid choice'
