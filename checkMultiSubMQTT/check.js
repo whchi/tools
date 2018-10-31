@@ -69,13 +69,11 @@ function setNewJson(payload) {
 }
 
 function match(payload, json) {
-  let newer = payload.filter((e, i) => {
+  return payload.filter((e, i) => {
     if (json[i].mtime < e.mtime) {
       return e;
     }
   });
-
-  return newer;
 }
 
 function recordMtime(payload) {
