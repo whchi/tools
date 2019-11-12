@@ -2,3 +2,5 @@
 example.json
 .editorconfig
 .vscode
+**/venv
+**/node_modules
