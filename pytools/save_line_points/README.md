@@ -2,7 +2,9 @@
 因為某次意外，抽到了 10000 點 line points，拿到的時候居然是 10x1000 個 uri...\
 所以寫了這個程式處理它
 ### demo
-[![sample](https://img.youtube.com/vi/CYc8CBqm5Lw/0.jpg)](https://www.youtube.com/watch?v=CYc8CBqm5Lw&feature=youtu.be)
+<a href="https://www.youtube.com/watch?v=CYc8CBqm5Lw&feature=player_embedded&v=-pdYK9Xg8Jw
+" target="_self"><img src="https://img.youtube.com/vi/CYc8CBqm5Lw/0.jpg"
+alt="" width="100%" height="auto" border="10" /></a>
 ### 作法
 1. 一份滿滿的兌換 uri xlsx，組成如下
 
