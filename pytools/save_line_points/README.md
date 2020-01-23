@@ -4,7 +4,7 @@
 ### demo
 [![sample](https://img.youtube.com/vi/CYc8CBqm5Lw/0.jpg)](https://www.youtube.com/watch?v=CYc8CBqm5Lw&feature=youtu.be)
 ### 作法
-1. 一份滿滿的兌換 uri xlsx，組成如下
+1. 一份滿滿的兌換 xlsx，名稱為 pincodes.xlsx 組成如下
 
 ||
 |:--|
