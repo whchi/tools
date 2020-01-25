@@ -18,6 +18,7 @@
 0. **擁有一份得獎清單**
 1. cfg.txt 裡面設定 line 帳密以及要不要看到瀏覽器
 2. 建立 toskip.txt
-3. `pip install -r requiremennts.txt`
-4. `python main.py`
-5. wait until finish
+3. (recommend)建議用 `virtualenv venv && source venv/bin/activate`
+4. `pip install -r requirements.txt`
+5. `python main.py`
+6. wait until finish
