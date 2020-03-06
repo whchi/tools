@@ -51,26 +51,6 @@ def get_town():
     return df
 
 
-def get_village(year):
-    yr_switcher = {
-        2016: '歷史村里代碼檔-106年03月（UTF8）.txt',
-        2020: '村里代碼檔-107年06月-UTF8.txt'
-    }
-    with open(f'{MAPCODES_DATA_DIR}/raw/{yr_switcher[year]}') as f:
-        codes = [
-            remove_control_characters(r.replace('臺',
-                                                '台').replace('\n',
-                                                             '')).split(',')
-            for r in f.readlines()
-        ]
-
-    df = pd.DataFrame(data=codes,
-                      dtype=np.str,
-                      columns=['ris_village_code', 'town_code', 'village_name'])
-
-    return df
-
-
 def get_village_raw_by_year(history, ym):
     ris_prefix = 'https://www.ris.gov.tw'
 
@@ -147,7 +127,7 @@ def clean_town_name(county_name, countytown_name):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='fma mp3 to npy')
+    parser = argparse.ArgumentParser()
     parser.add_argument('-history', action='store_true')
     parser.add_argument('-ym',
                         help='date to download, yyyymm',
