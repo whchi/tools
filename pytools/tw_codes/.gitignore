@@ -1,2 +1,3 @@
 *.csv
 !requirements.txt
+歷史*.txt
