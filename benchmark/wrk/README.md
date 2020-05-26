@@ -1,5 +1,3 @@
-benchmark tool using wrk
-
 1. install wrk
 ```sh
 brew install wrk
