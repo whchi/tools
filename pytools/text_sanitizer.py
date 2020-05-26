@@ -22,6 +22,11 @@ class MLStripper(HTMLParser):
     def get_data(self):
         return ''.join(self.fed)
 
+def remove_control_characters(s):
+    """
+        control character: https://en.wikipedia.org/wiki/Control_character
+    """
+    return ''.join(ch for ch in s if unicodedata.category(ch)[0]!='C')
 
 def strf2h(s):
     """
@@ -43,6 +48,7 @@ def sanitize(s):
     stripped = MLStripper()
     stripped.feed(s)
     ret = stripped.get_data()
+    ret = remove_control_characters(ret)
     ret = strf2h(ret)
     ret = strl2b(ret)
     ret = ret.replace('"', '')
