@@ -1,9 +1,5 @@
 # coding=utf-8
 
-#################
-# 去掉特殊符號, 空白, 換行, html tag
-#################
-
 from html.parser import HTMLParser
 from html import unescape
 import unicodedata
@@ -11,7 +7,9 @@ import re
 
 
 class MLStripper(HTMLParser):
-
+    """
+        去除 html tag
+    """
     def __init__(self):
         self.reset()
         self.strict = False
@@ -26,10 +24,16 @@ class MLStripper(HTMLParser):
 
 
 def strf2h(s):
+    """
+        全形轉半形
+    """
     return unicodedata.normalize('NFKC', s)
 
 
 def strl2b(s):
+    """
+        去除空白
+    """
     return re.sub(r'\s+', '', s)
 
 
