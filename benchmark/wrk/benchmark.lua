@@ -54,7 +54,7 @@ request = function()
         counter = 1
     end
     -- Return the request object with the current URL path
-    return wrk.format('GET', request_object)
+    return wrk.format(request_object.method, request_object.path, {["Content-Type"] = "application/json"}, json.encode(request_object.body))
 end
 logfile = io.open("wrk.log", "w");
 response = function(status, headers, body)
