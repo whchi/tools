@@ -38,7 +38,7 @@ YOUTUBE_API_KEY = "您的_API_密鑰"
 ### 命令行使用
 
 ```bash
-python main.py
+uv run --env-file .env -m main
 ```
 
 程式會要求您輸入頻道識別符，可以是：

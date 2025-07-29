@@ -280,6 +280,8 @@ class YouTubeAnalyzer:
     def analyze_channel(self, channel_identifier: str) -> bool:
         """Main method to analyze a channel"""
         print(f"開始分析頻道: {channel_identifier}")
+        if channel_identifier.startswith('@'):
+            channel_identifier = channel_identifier[1:]
 
         # Get channel ID
         if channel_identifier.startswith('UC') and len(channel_identifier) == 24:
