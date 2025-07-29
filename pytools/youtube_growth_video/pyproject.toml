@@ -1,0 +1,12 @@
+[project]
+name = "youtube-growth-video"
+version = "0.1.0"
+description = "YouTube channel video growth trend analyzer"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "google-api-python-client",
+    "python-dateutil",
+    "pandas",
+    "openpyxl"
+]

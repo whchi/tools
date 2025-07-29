@@ -1,0 +1,13 @@
+.env
+
+__pycache__
+.ruff_cache
+.idea
+.mypy_cache
+*.pyc
+.venv
+
+# Data files
+data/
+*.csv
+*.xlsx
