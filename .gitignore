@@ -4,3 +4,4 @@ example.json
 .vscode
 **/venv
 **/node_modules
+.DS_Store
