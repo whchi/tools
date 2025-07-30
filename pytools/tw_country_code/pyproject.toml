@@ -1,0 +1,20 @@
+[project]
+name = "tw-country-code"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "beautifulsoup4>=4.13.4",
+    "certifi>=2025.7.14",
+    "chardet>=5.2.0",
+    "idna>=3.10",
+    "lxml>=6.0.0",
+    "numpy>=2.3.2",
+    "pandas>=2.3.1",
+    "pytz>=2025.2",
+    "requests>=2.32.4",
+    "six>=1.17.0",
+    "soupsieve>=2.7",
+    "urllib3>=2.5.0",
+]

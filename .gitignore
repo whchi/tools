@@ -5,3 +5,12 @@ example.json
 **/venv
 **/node_modules
 .DS_Store
+.env
+__pycache__
+.ruff_cache
+.idea
+.mypy_cache
+*.pyc
+.venv
+*.csv
+*.xlsx

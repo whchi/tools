@@ -1,12 +1,6 @@
-import os
 import re
-from pathlib import Path
-
 import pandas as pd
-from dotenv import load_dotenv
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-load_dotenv(dotenv_path='.env')
 
 PANDAS_TO_JSON_PARAMS = {'force_ascii': False, 'orient': 'records'}
 

@@ -11,11 +11,11 @@ import sys
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DRIVER_PATH = BASE_DIR + '/chromedriver'
 CHROME_OPTIONS = Options()
-settings = {}
-with open(f'{BASE_DIR}/cfg.txt', 'r') as f:
-    for line in f.readlines():
-        line = line.strip('\n').split('=')
-        settings[line[0]] = line[1]
+settings = {
+    'ACCOUNT': os.getenv('ACCOUNT'),
+    'PASSWD': os.getenv('PASSWD'),
+    'SEE_BROWSER': os.getenv('SEE_BROWSER', 'n'),
+}
 with open(f'{BASE_DIR}/toskip.txt', 'r') as f:
     to_skip = list(filter(None, f.readline().strip('\n').split(',')))
 CHROME_OPTIONS.headless = False if settings['SEE_BROWSER'] == 'y' else True
